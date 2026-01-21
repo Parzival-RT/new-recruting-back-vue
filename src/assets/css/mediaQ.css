@@ -1,0 +1,32 @@
+
+
+/* Navbar: Vertical and Horizontal */
+@media only screen and (max-width: 767px) {
+    .header .navbar-vertical.collapsed {
+        width: 16.25rem!important;
+    }
+    .header .navbar-vertical.uncollapsed {
+        width: 0!important;
+    }
+    .header .navbar.navbar-horizontal {
+        margin-left: 0!important;
+    }
+    .header .navbar-horizontal .navbar-brand.navbar-disabled {
+        display: none!important;
+    }
+    .main {
+        padding-left: 0!important;
+    }
+    .header .navbar-vertical .close {
+        font-size: 1.09375rem;
+        color: #71869d;
+    }
+    .vacancy .weekDays {
+        display: block!important;
+    }
+}
+@media only screen and (min-width: 767px) {
+    .header .navbar-vertical .navbar-brand.d-flex {
+        display: none!important;
+    }
+}

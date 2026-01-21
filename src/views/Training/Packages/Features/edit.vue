@@ -1,0 +1,129 @@
+<template>
+    <div>
+      <loading :active.sync="isLoading"
+               :can-cancel="true"
+               :on-cancel="onCancel"
+               :is-full-page="fullPage"></loading>
+      <Header/>
+      <div v-show="!isLoading" class="main" :class="this.$store.state.showTopMenu== true ? 'collapsed ' : 'uncollapsed'">
+        <div class="container-fluid training p-4">
+  
+          <div class="row mb-3">
+            <!-- Col -->
+            <div class="col-12">
+              <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item text-primary"><router-link :to="'/Features/'+this.$route.params.id">უპირატესობები</router-link></li>
+                  <li class="breadcrumb-item" aria-current="page">უპირატესობის რედაქტირება</li>
+                </ol>
+              </nav>
+            </div>
+            <!-- End Col -->
+          </div>
+  
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center bg-light">
+              <span class="font-weigt-bold">დაარედაქტირე უპირატესობა</span>
+            </div>
+            <div class="card-body">
+              <!-- End Form -->
+              <form class="row" v-on:submit.prevent="submitForm">
+                <div class="col-12 mb-3">
+                  <label class="font-weigt-bold">უპირატესობის დასახელება</label>
+                  <input type="text" v-model="form.name" class="form-control" placeholder="უპირატესობის დასახელება">
+                </div>
+
+                <div class="col-12 text-end">
+                  <button class="btn btn-primary"> + რედაქტირება</button>
+                </div>
+              </form>
+              <!-- End Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+<script>
+import Header from '@/components/Header.vue'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+import axios from "axios";
+import vue2Dropzone from "vue2-dropzone";
+
+export default {
+  name: "edit",
+  components: {
+    Header,
+    Loading,
+    vueDropzone: vue2Dropzone
+  },
+  data() {
+    return {
+      isLoading: false,
+      fullPage: true,
+      form: {
+        name: ''
+      },
+    }
+  },
+  methods: {
+    onCancel() {
+    },
+    submitForm() {
+      this.isLoading = true;
+      const token = JSON.parse(localStorage.getItem('user')).access_token;
+
+      axios.put(process.env.VUE_APP_BACKEND_URL + '/auth/packages/sub/update/'+this.$route.params.id, this.form, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+        .then((res) => {
+          this.isLoading = false;
+          this.$router.push('/Features/'+this.$route.params.feature_id);
+        })
+        .catch((error) => {
+          this.isLoading = false;
+
+
+        });
+
+      },
+      getDataById() {
+            this.isLoading = true;
+            const token = JSON.parse(localStorage.getItem('user')).access_token;
+            axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/packages/sub/get_by_id/' + this.$route.params.id, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then((res) => {
+                    this.isLoading = false;
+                    this.form.name = res.data.name;
+                })
+                .catch((error) => {
+                    this.isLoading = false;
+
+
+                });
+        }
+  },
+  mounted() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false
+    }, 300);
+
+      this.getDataById();
+  }
+}
+</script>
+  
+<style scoped>
+.card-header {
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+}
+</style>

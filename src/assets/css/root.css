@@ -1,0 +1,41 @@
+@font-face {
+    font-family: FiraGO-Regular;
+    src: url(../fonts/FiraGO-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'FiraGO-Medium';
+    src: url(../../assets/fonts/FiraGO-Medium.ttf);
+}
+@font-face {
+    font-family: 'FiraGO-Book';
+    src: url(../../assets/fonts/FiraGO-Book.ttf);
+}
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url(../../assets/fonts/GothamBold.otf);
+}
+
+
+:root {
+    --FiraGO-One: FiraGO-Regular;
+
+    /* Fonts */
+    --First-Font: FiraGO-Medium;
+    --Second-Font: Gotham-Bold;
+    --Third-Font: FiraGO-Regular;
+    --Fourth-Font: FiraGO-Book;
+    /* Colors */
+    --First-Color: #FFB800;
+    --Second-Color: #606060;
+    --Second-Color-Menu-Hover: rgba(66, 66, 66, 0.8);
+    --Second-Color-Btn-Hover: #CBB000;
+    --Second-Color-Background-Btn-Hover: #fff000;
+    --Second-Color-Box-Hover: rgba(66, 66, 66, 0.18);
+    --Third-Color: #CBB000;
+    --Fourth-Color: #246BF6;
+    --vs-dropdown-option--active-bg: #31319D;
+    --input-background: #f8f8f8;
+    --input-border: #f1f1f1;
+    --input-border-hover: #e5e5e5;
+}

@@ -1,0 +1,109 @@
+<template>
+  <div>
+    <loading :active.sync="isLoading"
+             :can-cancel="true"
+             :on-cancel="onCancel"
+             :is-full-page="fullPage"></loading>
+    <Header/>
+    <div v-show="!isLoading" class="main" :class="this.$store.state.showTopMenu== true ? 'collapsed ' : 'uncollapsed'">
+      <div class="container-fluid p-4">
+
+        <div class="row mb-3">
+          <!-- Col -->
+          <div class="col-12">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item text-primary"><router-link to="/RegistrationInfo">აღწერილობის გვერდი</router-link></li>
+                <li class="breadcrumb-item" aria-current="page">აღწერილობის დამატება</li>
+              </ol>
+            </nav>
+          </div>
+          <!-- End Col -->
+        </div>
+
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center bg-light">
+            <span class="font-weigt-bold">დაამატე რეგისტრაციის აღწერილობა</span>
+          </div>
+          <div class="card-body">
+            <!-- End Form -->
+            <form class="row" v-on:submit.prevent="submitForm">
+              <div class="col-12 mb-3">
+                <input type="text" v-model="form.name" class="form-control" placeholder="პოზიციის დასახელება">
+              </div>
+              <div class="col-12 mb-3">
+                <VueEditor :editorToolbar="customToolbar" v-model="form.desc" placeholder="აღწერა"/>
+              </div>
+              <div class="col-12 text-end">
+                <button class="btn btn-primary"> + დამატება</button>
+              </div>
+            </form>
+            <!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Header from '@/components/Header.vue'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+import axios from "axios";
+
+export default {
+  name: "Create",
+  components: {
+    Header,
+    Loading
+  },
+  data() {
+    return {
+      isLoading: false,
+      fullPage: true,
+      form: {
+        name: '',
+        desc:''
+      }
+    }
+  },
+  methods: {
+    onCancel() {
+    },
+    submitForm(){
+      this.isLoading = true;
+      const token = JSON.parse(localStorage.getItem('user')).access_token;
+
+      axios.post(process.env.VUE_APP_BACKEND_URL+'/auth/RegGroup/create', this.form , {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+          .then((res) => {
+            this.isLoading = false;
+            this.$router.push('/RegistrationInfo');
+          })
+          .catch((error) => {
+            this.isLoading = false;
+
+
+          });
+
+    },
+  },
+  mounted() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false
+    }, 300);
+  }
+}
+</script>
+
+<style scoped>
+.card-header {
+  border-top-left-radius: 0.75rem!important;
+  border-top-right-radius: 0.75rem!important;
+}
+</style>
