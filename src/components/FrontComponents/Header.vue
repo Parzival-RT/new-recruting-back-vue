@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row align-items-center">
           <nav class="col-12 d-flex align-items-center">
-            <a class="logo" href="https://dk.ge">
+            <a class="logo" href="https://jobs.dk.ge">
               <img src="../../assets/image/logo.svg" alt="logo">
             </a>
             <div class="menu ms-auto" :class="isActive == true ? 'active' : ''">
@@ -55,76 +55,75 @@ export default {
 
 <style scoped>
 
-
-/* Header */
+/* ── Header bar ── */
 .front-header {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
   height: 82px;
-  background: #FFFFFF;
-  border-bottom: 1px solid #F2F2F2;
-
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   z-index: 1000;
+  box-shadow: 0 1px 8px -2px rgba(0,0,0,0.06);
 }
 
-
+/* ── Logo ── */
 .front-header .logo {
-  /*font-family: var(--Second-Font);*/
-  /*font-style: normal;*/
-  /*font-weight: 700;*/
-  /*font-size: 24px;*/
-  /*line-height: 27px;*/
-
-  /*color: var(--Second-Color);*/
   max-width: 250px;
+  flex-shrink: 0;
 }
 .front-header .logo img {
   width: 100%;
+  display: block;
 }
+
+/* ── Nav menu (desktop) ── */
 .front-header .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 22px;
+  gap: 8px;
   align-items: center;
-  margin:0;
-  padding-top: 2px;
-}
-.front-header .navbar-menu .nav-link {
+  margin: 0;
   padding: 0;
 }
+
 .front-header .navbar-menu li a {
-  font-family: var(--First-Font);
-  font-style: normal;
+  font-size: 0.9375rem;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--Second-Color);
+  color: #374151;
   text-decoration: none;
-
-  transition: 0.3s;
+  transition: color 0.15s;
 }
 .front-header .navbar-menu li a:hover {
-  color: var(--Second-Color-Menu-Hover);
+  color: #2563eb;
 }
-.front-header .navbar-menu li:nth-child(4) a {
-  background: var(--First-Color);
-  height: 39px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  padding: 11px 14px;
-  margin-left: 3px;
-  font-size: 14px;
-  color: var(--Second-Color);
-  transition: 0.3s;
+
+/* ── Register button (Bootstrap .btn.btn-primary in nav) ── */
+.front-header .navbar-menu .btn.btn-primary {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  /* padding: 0 !important; */
+  line-height: 1 !important;
+  box-shadow: none !important;
 }
-.front-header .navbar-menu li:nth-child(4) a:hover {
-  background: var(--Second-Color-Background-Btn-Hover);
+.front-header .navbar-menu .btn.btn-primary a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
 }
+.front-header .navbar-menu .btn.btn-primary:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* ── Burger icon ── */
 .front-header .burger-container {
   display: flex;
   justify-content: center;
@@ -138,7 +137,7 @@ export default {
   position: relative;
   width: 11.67px;
   height: 2px;
-  background: var(--Second-Color);
+  background: #374151;
   border-radius: 2px;
 }
 .front-header .burger-container .burger_main-line:before {
@@ -146,7 +145,7 @@ export default {
   content: '';
   width: 16.3px;
   height: 2px;
-  background: var(--Second-Color);
+  background: #374151;
   border-radius: 2px;
   top: -7.29px;
   transition: all 0.3s;
@@ -156,31 +155,23 @@ export default {
   content: '';
   width: 7px;
   height: 2px;
-  background: var(--Second-Color);
+  background: #374151;
   border-radius: 2px;
   bottom: -7.29px;
   transition: all 0.3s;
 }
 .front-header .burger-container.active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 28px;
   height: 16px;
-  margin-left: auto;
-  cursor: pointer;
 }
 .front-header .burger-container.active .burger_main-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 0;
   height: 0;
   background: transparent;
 }
 .front-header .burger-container.active .burger_main-line:before {
   width: 14px;
-  top:-1px;
+  top: -1px;
   transform: rotate(45deg);
 }
 .front-header .burger-container.active .burger_main-line:after {
@@ -189,6 +180,7 @@ export default {
   bottom: -1px;
 }
 
+/* ── Mobile ── */
 @media screen and (max-width: 991px) {
   .front-header {
     height: 57px;
@@ -200,108 +192,43 @@ export default {
     right: -100%;
     bottom: 0;
     width: 100%;
-    background: #FFFFFF;
-    padding: 32px calc(var(--bs-gutter-x) * .5);
+    background: #ffffff;
+    padding: 32px calc(var(--bs-gutter-x, 12px) * .5);
     z-index: 3;
-
     transition: all 0.3s;
     overflow: auto;
+    border-top: 1px solid #e5e7eb;
   }
-
   .front-header .menu.active {
     display: flex;
     right: 0;
   }
   .front-header .navbar-menu {
     flex-direction: column;
-    align-items: start;
-    padding: 0;
-  }
-  .front-header .navbar-menu li {
-    font-family: var(--First-Font);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-
-    color: var(--Second-Color);
-  }
-  .front-header .navbar-menu li:nth-child(4) {
-    display: none;
-  }
-  .front-header .navbar-menu-auth {
-    display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
-    align-items: center;
-    list-style: none;
     padding: 0;
   }
-  .front-header .navbar-menu-auth {
-    list-style: none;
-    padding: 0;
-    margin-top: 350px;
-    margin-bottom: 0;
+  .front-header .navbar-menu li a {
+    font-size: 1rem;
+    color: #111827;
   }
-  .front-header .navbar-menu-auth li:nth-child(1) {
-    display: flex;
-    gap: 10px;
-    font-family: var(--Third-Font);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-
-    color: var(--Second-Color);
+  .front-header .navbar-menu .btn.btn-primary {
+    width: 100%;
   }
-  .front-header .navbar-menu-auth li:nth-child(1) span {
-    font-family: var(--Third-Font);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+  .front-header .navbar-menu .btn.btn-primary a {
+    padding: 0.6rem 1rem;
+    width: 100%;
     text-align: center;
-    text-decoration: none;
-
-    color: #31319D;
-  }
-  .front-header .navbar-menu-auth li:nth-child(1) span:hover {
-    text-decoration-line: underline;
-  }
-  .front-header .navbar-menu-auth li:nth-child(2){
-    width: 100%;
-  }
-  .front-header .navbar-menu-auth li:nth-child(2) button {
-    width: 100%;
-    height: 50px;
-
-    background: var(--First-Color);
-    border: 1px solid transparent;
-    border-radius: 10px;
-
-    font-family: var(--First-Font);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-
-    color: var(--Second-Color);
-    transition: 0.3s;
-
-  }
-  .front-header .navbar-menu-auth li:nth-child(2) button:hover {
-    border: 1px solid var(--Third-Color);
   }
   .front-header .logo {
     max-width: 180px;
   }
 }
+
 @media screen and (min-width: 991px) {
   .front-header .burger-container,
   .front-header .burger-container.active {
-    display: none;
-  }
-  .navbar-menu-auth {
     display: none;
   }
 }

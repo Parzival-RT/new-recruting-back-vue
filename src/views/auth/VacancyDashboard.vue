@@ -209,5 +209,85 @@ export default {
 </script>
 
 <style scoped>
+.vacancy_dashboard {
+  background: radial-gradient(1200px 600px at 10% 0%, #f2f7ff 0%, #f7f9fc 45%, #ffffff 100%);
+}
 
+.vacancy_dashboard .page-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #111827;
+  font-size: 28px;
+}
+
+.vacancy_dashboard a,
+.vacancy_dashboard a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vacancy_dashboard .card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.vacancy_dashboard .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.12);
+  border-color: #d1d5db;
+}
+
+.vacancy_dashboard .card-body {
+  padding: 22px 24px;
+}
+
+.vacancy_dashboard i.display-4,
+.vacancy_dashboard .display-4 {
+  line-height: 1;
+}
+
+.vacancy_dashboard .display-4 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.vacancy_dashboard .h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.vacancy_dashboard .text-success {
+  color: #16a34a !important;
+}
+
+.vacancy_dashboard .text-warning {
+  color: #f59e0b !important;
+}
+
+.vacancy_dashboard .text-danger {
+  color: #dc2626 !important;
+}
+
+.vacancy_dashboard .text-primary {
+  color: #2563eb !important;
+}
+
+.vacancy_dashboard .js-counter {
+  color: #0f172a;
+}
+
+@media (max-width: 576px) {
+  .vacancy_dashboard .page-title {
+    font-size: 22px;
+  }
+
+  .vacancy_dashboard .card-body {
+    padding: 18px 16px;
+  }
+}
 </style>

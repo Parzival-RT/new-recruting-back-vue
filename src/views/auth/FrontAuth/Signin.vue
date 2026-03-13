@@ -14,7 +14,7 @@
             <!-- <img class="img-fluid" alt="home image" src="../../../assets/image/Signin.png"> -->
           <!-- </div> -->
           <!-- Col -->
-          <div class="col-12 w-100  d-flex justify-content-center  mb-5">
+          <div class="col-12 w-100  d-flex justify-content-center  mb-5 mt-5">
             <ValidationObserver class="w-100" v-slot="{ handleSubmit }">
             <form v-on:submit.prevent="handleSubmit(submitForm)" class="signin-container border p-5 shadow-lg mx-auto">
               <h4 class="signin-title">ავტორიზაცია</h4>
@@ -161,186 +161,159 @@ export default {
 h1,h2,h3,h4,h5,h6 {
   margin: 0!important;
 }
-/* Auth (signin) */
+
+/* ── Page ── */
 .front-signin {
-  margin-top: 109px;
+  margin-top: 82px;
+  min-height: calc(100vh - 82px);
+  background: #f8fafc;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 4rem;
 }
+
+/* ── Form card ── */
 .front-signin .signin-container {
-  max-width: 472px;
+  max-width: 460px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 28px 0;
-  padding-top:32px;
-  border-radius: 1.5rem;
+  gap: 22px 0;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 4px 24px -6px rgba(0,0,0,0.09) !important;
+  padding: 2.5rem 2.25rem !important;
 }
+
+/* ── Title ── */
 .front-signin .signin-title {
-  font-family: var(--First-Font);
-  font-style: normal!important;
-  font-weight: 500!important;
-  font-size: 18px!important;
-  line-height: 22px!important;
-
-  text-align: center!important;
-  font-feature-settings: 'case' on!important;
-
-  color: var(--Second-Color)!important;
-
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  color: #111827 !important;
+  margin-bottom: 0.25rem;
 }
+
+/* ── Labels ── */
 .front-signin .signin-container label {
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-  text-transform: lowercase!important;
-
-  color: var(--Second-Color)!important;
-  margin-bottom: 10px!important;
+  display: block;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+  color: #374151 !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: none !important;
 }
+
+/* ── Inputs ── */
 .front-signin .auth-control {
-  width: 100%!important;
-  height: 56px!important;
-  background: var(--input-background)!important;
-  padding: 17px 17px 18px!important;
-  border: 1px solid var(--input-border)!important;
-  border-radius: 10px!important;
-
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-
-  color: rgba(66, 66, 66, 0.5);
-
+  width: 100% !important;
+  height: 48px !important;
+  background: #fff !important;
+  padding: 0 1rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  color: #111827 !important;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.front-signin .auth-control:hover,
+.front-signin .auth-control:hover {
+  border-color: #cbd5e1 !important;
+}
 .front-signin .auth-control:focus {
-  border: 1px solid var(--input-border-hover) !important;
-}
-.front-signin .auth-control.lost {
-  margin-bottom: 16px;
-}
-.front-signin .lost-passoword {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #31319D;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+  outline: none !important;
 }
 .front-signin input::placeholder {
-  color: rgba(66, 66, 66, 0.5) !important;
+  color: #9ca3af !important;
 }
-.front-signin input:focus {
-  outline: none!important;
+.front-signin .auth-control.lost {
+  margin-bottom: 0.5rem;
 }
+
+/* ── Forgot password link ── */
+.front-signin .lost-passoword {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+}
+.front-signin .lost-passoword:hover {
+  text-decoration: underline;
+}
+
+/* ── Register row ── */
 .front-signin .signin-container .text-center {
-  margin-top:4px;
-  margin-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 .front-signin .signin-container .text-center span {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--Second-Color);
-  margin-right: 16px;
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
+  margin-right: 0.375rem;
 }
 .front-signin .signin-container .text-center a {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  color: #2563eb !important;
   text-decoration: none;
-
-  color: #31319D;
 }
 .front-signin .signin-container .text-center a:hover {
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
+
+/* ── Submit button (Bootstrap btn-primary) ── */
+.front-signin .signin-container .btn-primary {
+  width: 100%;
+  height: 48px;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600;
+  color: #fff !important;
+  transition: background 0.15s, border-color 0.15s;
+  box-shadow: none !important;
+}
+.front-signin .signin-container .btn-primary:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* ── Legacy btn-auth (d-none form) ── */
 .front-signin .signin-container .btn-auth {
   width: 100%;
-  height: 54px;
-  background: #FFDD04;
-  border: 1px solid transparent;
-  border-radius: 10px;
-
-  text-align: center;
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--Second-Color);
-  outline: none!important;
-  transition: 0.3s;
+  height: 48px;
+  background: #2563eb;
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.15s;
 }
 .front-signin .signin-container .btn-auth:hover {
-  background: var(--Second-Color-Background-Btn-Hover);
+  background: #1d4ed8;
 }
-.front-signin .row .d-1:nth-child(3) {
-  display: none;
-}
-.front-signin .row .d-1 span:nth-of-type(1) {
-  max-width: 472px;
-  width: 100%;
-}
-@media screen and (max-width: 1366px) {
-  .front-signin .img-fluid {
-    max-width: 500px;
-    width: 100%;
-  }
-}
+
+/* ── Misc ── */
+.front-signin .row .d-1:nth-child(3) { display: none; }
+.front-signin .row .d-1 span:nth-of-type(1) { max-width: 472px; width: 100%; }
+
 @media screen and (max-width: 1199px) {
-  .front-signin {
-    margin-top: 57px;
-  }
+  .front-signin { margin-top: 57px; }
   .front-signin .row .d-1:nth-child(1),
-  .front-signin .row .d-1:nth-child(2) {
-    display: none!important;
-  }
-  .front-signin .row .d-1:nth-child(3) {
-    display: block;
-  }
-  .front-signin .signin-container {
-    max-width: 100%;
-    padding-top: 32px;
-  }
+  .front-signin .row .d-1:nth-child(2) { display: none !important; }
+  .front-signin .row .d-1:nth-child(3) { display: block; }
+  .front-signin .signin-container { max-width: 100%; }
 }
+
 @media screen and (max-width: 768px) {
-  .front-footer {
-    margin-top: 268px;
-  }
-  .front-signin .auth-control {
-    height: 50px!important;
-    padding: 16px 28px 17px 28px!important;
-  }
-  .front-signin .signin-title {
-    font-size: 16px!important;
-    line-height: 19px!important;
-  }
-  .front-signin .signin-container label {
-    margin-bottom: 16px;
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signin .signin-container .text-center span {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signin .signin-container .text-center a {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signin .signin-container .btn-auth {
-    height: 50px;
-  }
+  .front-signin .signin-container { padding: 2rem 1.25rem !important; }
+  .front-signin .auth-control { height: 44px !important; }
+  .front-signin .signin-title { font-size: 1.125rem !important; }
 }
 </style>

@@ -1626,7 +1626,223 @@ export default {
 </script>
 
 <style scoped>
+/* Page shell */
+.vacancy {
+  position: relative;
+  background: radial-gradient(1200px 600px at 0% 0%, #f2f6ff 0%, #f8fafc 48%, #ffffff 100%);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: #0f172a;
+}
+
+.vacancy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(59, 130, 246, 0.10), transparent 35%),
+    radial-gradient(circle at 90% 12%, rgba(16, 185, 129, 0.10), transparent 38%),
+    radial-gradient(circle at 60% 80%, rgba(245, 158, 11, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.vacancy .container-fluid {
+  position: relative;
+  z-index: 1;
+}
+
+.vacancy .page-title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #0f172a;
+}
+
+/* Cards */
+.vacancy .card {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  overflow: hidden;
+  animation: cardFade 220ms ease both;
+}
+
+.vacancy .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1d4ed8 0%, #22c55e 50%, #f59e0b 100%);
+  opacity: 0.7;
+}
+
+.vacancy .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+  border-color: #d1d5db;
+}
+
+.vacancy .card-header {
+  position: relative;
+  background: #f8fafc;
+  border-bottom: 1px solid #eef2f7;
+  font-weight: 600;
+  padding: 14px 18px;
+  color: #0f172a;
+  border-radius: 18px 18px 0 0;
+}
+
+.vacancy .card-body {
+  padding: 22px 22px;
+}
+
+.vacancy .card-footer {
+  border-top: 1px solid #eef2f7;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 0 0 18px 18px;
+}
+
+/* Typography */
+.font-weigt-bold {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Inputs + selects */
+.vacancy .form-control,
+.vacancy :deep(.lss-form-select .vs__dropdown-toggle) {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.vacancy .form-control:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.vacancy :deep(.lss-form-select .vs__dropdown-toggle) {
+  min-height: 42px;
+}
+
+.vacancy :deep(.lss-form-select .vs__selected) {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.vacancy :deep(.lss-form-select .vs__dropdown-menu) {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+}
+
+/* Vue editor */
+.vacancy :deep(.ql-toolbar) {
+  border-radius: 12px 12px 0 0;
+  border-color: #e5e7eb;
+  background: #f8fafc;
+}
+
+.vacancy :deep(.ql-container) {
+  border-radius: 0 0 12px 12px;
+  border-color: #e5e7eb;
+  min-height: 160px;
+}
+
+/* Buttons */
+.vacancy .btn {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.vacancy .btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.18);
+}
+
+.vacancy .btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.vacancy .btn-outline-primary {
+  border-color: #cbd5e1;
+  color: #0f172a;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.vacancy .btn-outline-primary:hover {
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.vacancy .btn-check:checked + .btn-outline-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.22);
+}
+
+/* Alerts */
+.vacancy .alert {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+}
+
+.vacancy .alert ul {
+  margin: 8px 0 0;
+}
+
+/* Form switches */
+.vacancy .form-check-input {
+  width: 2.2rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background-color: #e2e8f0;
+}
+
+.vacancy .form-check-input:checked {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+
+/* Modals */
+.modal-content {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.modal-header {
+  border-bottom: 1px solid #eef2f7;
+  background: #f8fafc;
+}
+
+.modal-footer {
+  border-top: 1px solid #eef2f7;
+}
+
 .card-footer:last-child {
-  border-radius: 0 0 0.6875rem 0.6875rem !important;
+  border-radius: 0 0 18px 18px !important;
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

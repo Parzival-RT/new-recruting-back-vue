@@ -16,11 +16,11 @@
                     {{ result_data.position.name }}</a>
                 </li>
                 <li class="breadcrumb-item" aria-current="page">
-                  <span v-if="this.$route.params.status == 'won'">აყვანილი კანდიდატები</span>
-                  <span v-if="this.$route.params.status == 'closing'">საუკეთესო კანდიდატები</span>
-                  <span v-if="this.$route.params.status == 'meeting'">შესახვედრი კანდიდატები</span>
-                  <span v-if="this.$route.params.status == 'offers'">განსახილველი კანდიდატები</span>
-                  <span v-if="this.$route.params.status == 'rejects'">უარყოფილი კანდიდატები</span>
+                  <span v-if="this.$route.params.status == 'won'"     class="status-pill s-won">აყვანილი კანდიდატები</span>
+                  <span v-if="this.$route.params.status == 'closing'" class="status-pill s-closing">საუკეთესო კანდიდატები</span>
+                  <span v-if="this.$route.params.status == 'meeting'" class="status-pill s-meeting">შესახვედრი კანდიდატები</span>
+                  <span v-if="this.$route.params.status == 'offers'"  class="status-pill s-offers">განსახილველი კანდიდატები</span>
+                  <span v-if="this.$route.params.status == 'rejects'" class="status-pill s-rejects">უარყოფილი კანდიდატები</span>
                 </li>
               </ol>
             </nav>
@@ -325,34 +325,137 @@ export default {
 </script>
 
 <style scoped>
+
+/* ── Page ── */
+.vacancy {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* ── Breadcrumb (same style as CandidatsDashboard) ── */
+.vacancy .breadcrumb {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.875rem;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+  font-size: 0.8125rem;
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.vacancy .breadcrumb-item + .breadcrumb-item::before { color: #cbd5e1; }
+.vacancy .breadcrumb a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+.vacancy .breadcrumb a:hover { color: #1d4ed8; text-decoration: underline; }
+.vacancy .breadcrumb-item { color: #374151; font-weight: 500; }
+
+/* ── Status badge in breadcrumb ── */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.s-won     { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.s-closing { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.s-meeting { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+.s-offers  { background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }
+.s-rejects { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* ── Cards ── */
+.vacancy .card {
+  border: 1px solid #f1f5f9;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 2px 16px -4px rgba(0,0,0,0.07);
+  transition: box-shadow 0.18s ease;
+}
+.vacancy .card:hover {
+  box-shadow: 0 8px 24px -6px rgba(0,0,0,0.12);
+}
+.vacancy .card-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #f1f5f9;
+  border-radius: 1.25rem 1.25rem 0 0;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+}
+.vacancy .card-body { padding: 1rem; }
+
+/* ── Prevent dropdown from shifting card height ── */
+.vacancy .btn-group { align-items: center; }
+.vacancy .btn { line-height: 1.5; }
+.vacancy :deep(.dropdown-toggle)  { white-space: nowrap; }
+.vacancy :deep(.dropdown-menu)    { position: absolute !important; }
+
+/* ── Buttons ── */
+.vacancy .btn { border-radius: 0.625rem; font-weight: 600; }
+.vacancy .btn-primary  { background-color: #2563eb; border-color: #2563eb; }
+.vacancy .btn-success  { background-color: #16a34a; border-color: #16a34a; }
+.vacancy .btn-outline-secondary { border-color: #cbd5e1; color: #374151; }
+.vacancy .btn-outline-success   { border-color: #86efac; }
+
+/* ── Badges ── */
+.vacancy .badge { border-radius: 999px; font-weight: 600; }
+
+/* ── Dropdowns ── */
+.vacancy :deep(.dropdown-menu) {
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 24px rgba(15,23,42,0.12);
+}
+
+/* ── Pagination ── */
+.vacancy :deep(.pagination .page-link) {
+  border-radius: 0.625rem;
+  border-color: #e5e7eb;
+  color: #374151;
+}
+.vacancy :deep(.pagination .page-item.active .page-link) {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+/* ── Tooltip ── */
 .tooltip-inner:last-child {
   position: absolute;
   transform: translate3d(-10px, 50px, 0px);
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   will-change: transform;
   max-width: 350px !important;
   width: 350px;
   text-align: start !important;
-  border-top: 3px solid #0d6efd;
+  border-top: 3px solid #2563eb;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 12px 24px rgba(15,23,42,0.12);
 }
-
 @media screen and (max-width: 500px) {
-  .tooltip-inner:last-child {
-    max-width: 310px !important;
-    width: 310px !important;
-  }
+  .tooltip-inner:last-child { max-width: 310px !important; width: 310px !important; }
 }
-
 .tooltip-inner:last-child::before {
   content: '';
   position: absolute;
   top: -11px;
   left: -7px;
-  background-color: #0d6efd;
+  background-color: #2563eb;
   width: 50px;
   height: 50px;
   -webkit-clip-path: polygon(50% 0%, 41% 20%, 60% 20%);
   clip-path: polygon(50% 0%, 41% 20%, 60% 20%);
 }
+
 </style>

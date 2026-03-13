@@ -13,7 +13,7 @@
             <img class="img-fluid" alt="home image" src="../../../assets/image/Signup.png">
           </div> -->
           <!-- Col -->
-          <div class="col-12 mb-5">
+          <div class="col-12 mb-5 mt-5">
             <ValidationObserver class="w-100" v-slot="{ handleSubmit }">
               <form @submit.prevent="handleSubmit(submitForm)" @keydown="clearError" class="signup-container border shadow-lg p-5 mx-auto">
                 <h4 class="signup-title">რეგისტრაცია</h4>
@@ -160,193 +160,148 @@ export default {
 </script>
 
 <style scoped>
-.terms { 
-  color: #4355FF;
-  -webkit-font-feature-settings: 'case' on!;
-  font-feature-settings: "case" on;
-  font-size: 14px;
-  /* font-family: var(--First-Font); */
-}
-.terms:hover { 
-  color: #0920ec;
+h1,h2,h3,h4,h5,h6 { margin: 0 !important; }
+
+/* ── Page ── */
+.front-signup {
+  margin-top: 82px;
+  min-height: calc(100vh - 82px);
+  background: #f8fafc;
+  padding-bottom: 4rem;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  margin: 0!important;
-}
-/* Auth (signin) */
-.front-signup{
-  margin-top: 109px;
-}
+/* ── Form card ── */
 .front-signup .signup-container {
-  max-width: 472px;
+  max-width: 460px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 28px 0;
-  padding-top:32px;
-    border-radius: 1.5rem;
+  gap: 20px 0;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 4px 24px -6px rgba(0,0,0,0.09) !important;
+  padding: 2.5rem 2.25rem !important;
 }
+
+/* ── Title ── */
 .front-signup .signup-title {
-  font-family: var(--First-Font);
-  font-style: normal!important;
-  font-weight: 500!important;
-  font-size: 18px!important;
-  line-height: 22px!important;
-
-  text-align: center!important;
-  font-feature-settings: 'case' on!important;
-
-  color: var(--Second-Color)!important;
-
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  color: #111827 !important;
 }
+
+/* ── Labels ── */
 .front-signup .signup-container label {
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-  text-transform: lowercase!important;
-
-  color: var(--Second-Color)!important;
-  margin-bottom: 10px!important;
+  display: block;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+  color: #374151 !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: none !important;
 }
+
+/* ── Inputs ── */
 .front-signup .auth-control {
-  width: 100%!important;
-  height: 56px!important;
-  background: var(--input-background)!important;
-  padding: 17px 17px 18px!important;
-  border: 1px solid var(--input-border) !important;
-  border-radius: 10px!important;
-
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-
-  color: rgba(66, 66, 66, 0.5);
+  width: 100% !important;
+  height: 48px !important;
+  background: #fff !important;
+  padding: 0 1rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  color: #111827 !important;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.front-signup .auth-control:hover,
+.front-signup .auth-control:hover {
+  border-color: #cbd5e1 !important;
+}
 .front-signup .auth-control:focus {
-  border: 1px solid var(--input-border-hover) !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+  outline: none !important;
 }
-.front-signup .auth-control.lost {
-  margin-bottom: 16px;
-}
-.front-signup .lost-passoword {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+.front-signup input::placeholder { color: #9ca3af !important; }
 
-  color: #31319D;
+/* ── Checkbox label ── */
+.front-signup .custom-control-label {
+  font-size: 0.8125rem !important;
+  color: #6b7280 !important;
+  font-weight: 400 !important;
 }
-.front-signup input::placeholder {
-  color: rgba(66, 66, 66, 0.5) !important;
+
+/* ── Terms link ── */
+.terms {
+  color: #2563eb;
+  font-size: 0.8125rem;
+  font-feature-settings: "case" on;
+  text-decoration: none;
 }
-.front-signup input:focus {
-  outline: none!important;
-}
+.terms:hover { color: #1d4ed8; text-decoration: underline; }
+
+/* ── "გაქვთ ანგარიში?" row ── */
 .front-signup .signup-container .text-center {
-  margin-top:4px;
-  margin-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 .front-signup .signup-container .text-center span {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--Second-Color);
-  margin-right: 16px;
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
+  margin-right: 0.375rem;
 }
 .front-signup .signup-container .text-center a {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  color: #2563eb !important;
   text-decoration: none;
+}
+.front-signup .signup-container .text-center a:hover { text-decoration: underline; }
 
-  color: #31319D;
+/* ── Submit button (Bootstrap btn-primary) ── */
+.front-signup .signup-container .btn-primary {
+  width: 100%;
+  height: 48px;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600;
+  color: #fff !important;
+  transition: background 0.15s, border-color 0.15s;
+  box-shadow: none !important;
 }
-.front-signup .signup-container .text-center a:hover {
-  text-decoration-line: underline;
+.front-signup .signup-container .btn-primary:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
 }
+
+/* ── Legacy btn-auth ── */
 .front-signup .signup-container .btn-auth {
-  width: 100%;
-  height: 54px;
-  background: #FFDD04;
-  border: 1px solid transparent;
-  border-radius: 10px;
+  width: 100%; height: 48px;
+  background: #2563eb; border: none; border-radius: 0.625rem;
+  font-size: 0.9375rem; font-weight: 600; color: #fff;
+  transition: background 0.15s;
+}
+.front-signup .signup-container .btn-auth:hover { background: #1d4ed8; }
 
-  text-align: center;
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+/* ── Misc ── */
+.front-signup .row .d-1:nth-child(3) { display: none; }
+.front-signup .row .d-1 span:nth-of-type(1) { max-width: 472px; width: 100%; }
 
-  color: var(--Second-Color);
-  outline: none!important;
-  transition: 0.3s;
-}
-.front-signup .signup-container .btn-auth:hover {
-  background: var(--Second-Color-Background-Btn-Hover);
-}
-.front-signup .row .d-1:nth-child(3) {
-  display: none;
-}
-.front-signup .row .d-1 span:nth-of-type(1) {
-  max-width: 472px;
-  width: 100%;
-}
 @media screen and (max-width: 1199px) {
-  .front-signup {
-    margin-top: 57px;
-  }
+  .front-signup { margin-top: 57px; }
   .front-signup .row .d-1:nth-child(1),
-  .front-signup .row .d-1:nth-child(2) {
-    display: none!important;
-  }
-  .front-signup .row .d-1:nth-child(3) {
-    display: block;
-  }
-  .front-signup .signup-container {
-    max-width: 100%;
-    padding-top: 32px;
-  }
+  .front-signup .row .d-1:nth-child(2) { display: none !important; }
+  .front-signup .row .d-1:nth-child(3) { display: block; }
+  .front-signup .signup-container { max-width: 100%; }
 }
+
 @media screen and (max-width: 768px) {
-  .front-footer {
-    margin-top: 268px;
-  }
-  .front-signup .auth-control {
-    height: 50px!important;
-    padding: 16px 28px 17px 28px!important;
-  }
-  .front-signup .signup-title {
-    font-size: 16px!important;
-    line-height: 19px!important;
-  }
-  .front-signup .signup-container label {
-    margin-bottom: 16px;
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signup .signup-container .text-center span {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signup .signup-container .text-center a {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-signup .signup-container .btn-auth {
-    height: 50px;
-  }
+  .front-signup .signup-container { padding: 2rem 1.25rem !important; }
+  .front-signup .auth-control { height: 44px !important; }
+  .front-signup .signup-title { font-size: 1.125rem !important; }
 }
 </style>

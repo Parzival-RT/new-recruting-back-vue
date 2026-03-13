@@ -1,32 +1,67 @@
 
 
-/* Navbar: Vertical and Horizontal */
+/* =============================================
+   MOBILE  (< 767px)
+   ============================================= */
 @media only screen and (max-width: 767px) {
+
+    /* Sidebar: always full width on mobile, slide with transform */
+    .header .navbar-vertical {
+        width: 16.25rem !important;
+        overflow-x: visible !important; /* allow shadow to show */
+        transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    /* "collapsed" on mobile = sidebar IS OPEN (slides in from left) */
     .header .navbar-vertical.collapsed {
-        width: 16.25rem!important;
+        transform: translateX(0) !important;
+        width: 16.25rem !important;
     }
+
+    /* "uncollapsed" on mobile = sidebar IS CLOSED (off screen to left) */
     .header .navbar-vertical.uncollapsed {
-        width: 0!important;
+        transform: translateX(-100%) !important;
+        width: 16.25rem !important;
     }
+
+    /* Top navbar: always full width, no margin offset */
     .header .navbar.navbar-horizontal {
-        margin-left: 0!important;
+        margin-left: 0 !important;
     }
+
+    /* Desktop brand inside sidebar — hide on mobile */
     .header .navbar-horizontal .navbar-brand.navbar-disabled {
-        display: none!important;
+        display: none !important;
     }
+
+    /* Main content: no left padding on mobile */
     .main {
-        padding-left: 0!important;
+        padding-left: 0 !important;
     }
+
+    /* Close button inside sidebar */
     .header .navbar-vertical .close {
         font-size: 1.09375rem;
         color: #71869d;
     }
+
     .vacancy .weekDays {
-        display: block!important;
+        display: block !important;
     }
 }
+
+/* =============================================
+   DESKTOP  (≥ 767px)
+   ============================================= */
 @media only screen and (min-width: 767px) {
+
+    /* Mobile brand (with hamburger) — hide on desktop */
     .header .navbar-vertical .navbar-brand.d-flex {
-        display: none!important;
+        display: none !important;
+    }
+
+    /* Sidebar: use width animation on desktop (transform not needed) */
+    .header .navbar-vertical {
+        transform: none !important;
     }
 }

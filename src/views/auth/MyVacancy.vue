@@ -1253,25 +1253,215 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  list-style-type: none;
-  height: 400px;
-  overflow: auto;
-  overflow-x: hidden;
+/* Layout + background */
+/* Page shell */
+.vacancy {
+  position: relative;
+  background: radial-gradient(1200px 600px at 0% 0%, #f2f6ff 0%, #f8fafc 48%, #ffffff 100%);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: #0f172a;
 }
 
-ul li {
-  margin-bottom: 10px;
+.vacancy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(59, 130, 246, 0.10), transparent 35%),
+    radial-gradient(circle at 90% 12%, rgba(16, 185, 129, 0.10), transparent 38%),
+    radial-gradient(circle at 60% 80%, rgba(245, 158, 11, 0.08), transparent 40%);
+  pointer-events: none;
 }
 
-.badge {
+.vacancy .container-fluid {
+  position: relative;
+  z-index: 1;
+}
+
+.vacancy .breadcrumb {
+  font-size: 14px;
+}
+
+.vacancy .breadcrumb a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.vacancy .breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.vacancy .card {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  overflow: hidden;
+  animation: cardFade 220ms ease both;
+}
+
+.vacancy .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1d4ed8 0%, #22c55e 50%, #f59e0b 100%);
+  opacity: 0.7;
+}
+
+.vacancy .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+  border-color: #d1d5db;
+}
+
+.vacancy .card-header {
+  position: relative;
+  background: #f8fafc;
+  border-bottom: 1px solid #eef2f7;
+  font-weight: 600;
+  padding: 14px 18px;
+  color: #0f172a;
+  border-radius: 18px 18px 0 0;
+}
+
+.vacancy .card-body {
+  padding: 22px 22px;
+}
+
+.vacancy .card-footer {
+  border-top: 1px solid #eef2f7;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 0 0 18px 18px;
+}
+
+.vacancy .card-header .badge {
+  height: 22px;
+  font-size: 12px;
+  padding: 2px 10px;
+}
+
+.vacancy .card-body b {
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.vacancy .card-title.text-muted {
+  color: #64748b !important;
+  font-size: 13px;
+}
+
+.vacancy .card-body small {
+  line-height: 1.5;
+}
+
+.vacancy .card-body .badge {
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.10);
+}
+
+/* Buttons */
+.vacancy .btn {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.vacancy .btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.18);
+}
+
+.vacancy .btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.vacancy .btn-secondary {
+  background-color: #111827;
+  border-color: #111827;
+}
+
+.vacancy .btn-yellow {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #0f172a;
+}
+
+.vacancy .btn-light {
+  background: #f1f5f9;
+  border-color: #e5e7eb;
+  color: #0f172a;
+}
+
+/* Badges */
+.vacancy .badge {
   height: 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
-.card-footer:last-child {
-  border-radius: 0 0 0.6875rem 0.6875rem !important;
+.vacancy .bg-green {
+  background-color: #16a34a !important;
 }
 
+.vacancy .bg-soft-success {
+  background-color: rgba(22, 163, 74, 0.12);
+}
+
+/* Progress */
+.vacancy .progress {
+  height: 10px;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+}
+
+.vacancy .progress-bar {
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Inputs + selects */
+.vacancy .form-control,
+.vacancy .lss-form-select {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.vacancy .form-control:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Offcanvas */
+.vacancy .offcanvas {
+  border-left: 1px solid #e5e7eb;
+}
+
+.vacancy .offcanvas-header {
+  background: #f8fafc;
+}
+
+.vacancy .offcanvas-body label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.vacancy .offcanvas-body .form-control,
+.vacancy .offcanvas-body .lss-form-select {
+  background: #ffffff;
+}
+
+/* Pagination */
 .pagination-container {
   display: block;
   overflow: auto;
@@ -1285,6 +1475,43 @@ ul li {
   height: unset !important;
   padding-top: 3px;
   padding-bottom: 10px;
+}
+
+.vacancy :deep(.pagination .page-link) {
+  border-radius: 10px;
+  border-color: #e5e7eb;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.vacancy :deep(.pagination .page-item.active .page-link) {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.vacancy :deep(.pagination .page-link:hover) {
+  background-color: #f8fafc;
+}
+
+/* Copy modal list */
+ul {
+  list-style-type: none;
+  height: 400px;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-left: 0;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 0.6875rem 0.6875rem !important;
 }
 
 .avatar {
@@ -1307,5 +1534,36 @@ ul li {
   color: #fff;
   background-color: #383b55;
   font-size: 0.9375rem;
+}
+
+.font-weigt-bold {
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-content {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.modal-header {
+  border-bottom: 1px solid #eef2f7;
+  background: #f8fafc;
+}
+
+.modal-footer {
+  border-top: 1px solid #eef2f7;
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

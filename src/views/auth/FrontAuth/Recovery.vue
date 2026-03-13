@@ -14,7 +14,7 @@
             <img class="img-fluid" alt="home image" src="../../../assets/image/home.png">
           </div> -->
           <!-- Col -->
-          <div class="col-12  d-flex justify-content-center  mb-5">
+          <div class="col-12  d-flex justify-content-center  mb-5 mt-5">
             <div class="alert alert-success w-100 m-0" v-if="successAlert" style="max-width: 472px;">
               თქვენი მოთხოვნა წარმატებით შესრულდა.
             </div>
@@ -144,184 +144,147 @@ export default {
 </script>
 
 <style scoped>
-h1,h2,h3,h4,h5,h6 {
-  margin: 0!important;
-}
-/* Auth (signin) */
+h1,h2,h3,h4,h5,h6 { margin: 0 !important; }
+
+/* ── Page ── */
 .front-recovery {
-  margin-top: 109px;
+  margin-top: 82px;
+  min-height: calc(100vh - 82px);
+  background: #f8fafc;
+  padding-bottom: 4rem;
 }
+
+/* ── Alerts ── */
+.front-recovery .alert {
+  border-radius: 0.75rem !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ── Form card ── */
 .front-recovery .recovery-container {
-  max-width: 472px;
+  max-width: 460px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 28px 0;
-  padding-top:32px;
-  border-radius: 1.5rem;
+  gap: 22px 0;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 4px 24px -6px rgba(0,0,0,0.09) !important;
+  padding: 2.5rem 2.25rem !important;
 }
+
+/* ── Description text ── */
+.front-recovery .recovery-container .text-center p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ── Title ── */
 .front-recovery .recovery-title {
-  font-family: var(--First-Font);
-  font-style: normal!important;
-  font-weight: 500!important;
-  font-size: 18px!important;
-  line-height: 22px!important;
-
-  text-align: center!important;
-  font-feature-settings: 'case' on!important;
-
-  color: var(--Second-Color)!important;
-
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  color: #111827 !important;
 }
+
+/* ── Labels ── */
 .front-recovery .recovery-container label {
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-  text-transform: lowercase!important;
-
-  color: var(--Second-Color)!important;
-  margin-bottom: 10px!important;
+  display: block;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+  color: #374151 !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: none !important;
 }
+
+/* ── Input ── */
 .front-recovery .auth-control {
-  width: 100%!important;
-  height: 56px!important;
-  background: var(--input-background)!important;
-  padding: 17px 17px 18px!important;
-  border: 1px solid var(--input-border)!important;
-  border-radius: 10px!important;
-
-  font-family: var(--Third-Font)!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  font-size: 16px!important;
-  line-height: 19px!important;
-  text-transform: lowercase!important;
-
-  color: rgba(66, 66, 66, 0.5);
-
+  width: 100% !important;
+  height: 48px !important;
+  background: #fff !important;
+  padding: 0 1rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  color: #111827 !important;
+  text-transform: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.front-recovery .auth-control:hover,
+.front-recovery .auth-control:hover {
+  border-color: #cbd5e1 !important;
+}
 .front-recovery .auth-control:focus {
-  border: 1px solid var(--input-border-hover) !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+  outline: none !important;
 }
-.front-recovery .auth-control.lost {
-  margin-bottom: 16px;
-}
-.front-recovery .lost-passoword {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+.front-recovery input::placeholder { color: #9ca3af !important; }
 
-  color: #31319D;
-}
-.front-recovery input::placeholder {
-  color: rgba(66, 66, 66, 0.5) !important;
-}
-.front-recovery input:focus {
-  outline: none!important;
-}
+/* ── "არ გაქვთ ანგარიში?" row ── */
 .front-recovery .recovery-container .text-center {
-  margin-top:4px;
-  margin-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 .front-recovery .recovery-container .text-center span {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--Second-Color);
-  margin-right: 16px;
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
+  margin-right: 0.375rem;
 }
 .front-recovery .recovery-container .text-center a {
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  color: #2563eb !important;
   text-decoration: none;
+}
+.front-recovery .recovery-container .text-center a:hover { text-decoration: underline; }
 
-  color: #31319D;
+/* ── Submit button (Bootstrap btn-primary) ── */
+.front-recovery .recovery-container .btn-primary {
+  width: 100%;
+  height: 48px;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600;
+  color: #fff !important;
+  transition: background 0.15s, border-color 0.15s;
+  box-shadow: none !important;
 }
-.front-recovery .recovery-container .text-center a:hover {
-  text-decoration-line: underline;
+.front-recovery .recovery-container .btn-primary:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
 }
+
+/* ── Legacy btn-auth ── */
 .front-recovery .recovery-container .btn-auth {
-  width: 100%;
-  height: 54px;
-  background: #FFDD04;
-  border: 1px solid transparent;
-  border-radius: 10px;
+  width: 100%; height: 48px;
+  background: #2563eb; border: none; border-radius: 0.625rem;
+  font-size: 0.9375rem; font-weight: 600; color: #fff;
+  transition: background 0.15s;
+}
+.front-recovery .recovery-container .btn-auth:hover { background: #1d4ed8; }
 
-  text-align: center;
-  font-family: var(--Third-Font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+/* ── Misc ── */
+.front-recovery .row .d-1:nth-child(3) { display: none; }
+.front-recovery .row .d-1 span:nth-of-type(1) { max-width: 472px; width: 100%; }
 
-  color: var(--Second-Color);
-  outline: none!important;
-  transition: 0.3s;
-}
-.front-recovery .recovery-container .btn-auth:hover {
-  background: var(--Second-Color-Background-Btn-Hover);
-}
-.front-recovery .row .d-1:nth-child(3) {
-  display: none;
-}
-.front-recovery .row .d-1 span:nth-of-type(1) {
-  max-width: 472px;
-  width: 100%;
-}
 @media screen and (max-width: 1199px) {
-  .front-recovery {
-    margin-top: 57px;
-  }
+  .front-recovery { margin-top: 57px; }
   .front-recovery .row .d-1:nth-child(1),
-  .front-recovery .row .d-1:nth-child(2) {
-    display: none!important;
-  }
-  .front-recovery .row .d-1:nth-child(3) {
-    display: block;
-  }
-  .front-recovery .recovery-container {
-    max-width: 100%;
-    padding-top: 32px;
-  }
+  .front-recovery .row .d-1:nth-child(2) { display: none !important; }
+  .front-recovery .row .d-1:nth-child(3) { display: block; }
+  .front-recovery .recovery-container { max-width: 100%; }
 }
+
 @media screen and (max-width: 768px) {
-  .front-footer {
-    margin-top: 268px;
-  }
-  .front-recovery .auth-control {
-    height: 50px!important;
-    padding: 16px 28px 17px 28px!important;
-  }
-  .front-recovery .recovery-title {
-    font-size: 16px!important;
-    line-height: 19px!important;
-  }
-  .front-recovery .recovery-container label {
-    margin-bottom: 16px;
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-recovery .recovery-container .text-center span {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-recovery .recovery-container .text-center a {
-    font-size: 14px!important;
-    line-height: 17px!important;
-  }
-  .front-recovery .recovery-container .btn-auth {
-    height: 50px;
-  }
+  .front-recovery .recovery-container { padding: 2rem 1.25rem !important; }
+  .front-recovery .auth-control { height: 44px !important; }
+  .front-recovery .recovery-title { font-size: 1.125rem !important; }
 }
 </style>

@@ -207,7 +207,151 @@ export default {
 </script>
 
 <style scoped>
-.card-footer, .card-header {
-  background: transparent!important;
+
+/* ── Page ── */
+.main { background: #f8fafc; }
+
+/* ── Outer card ── */
+.card {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 2px 16px -4px rgba(0,0,0,0.07) !important;
+  background: #fff !important;
 }
+
+/* ── Card header ── */
+.card-header {
+  background: #f8fafc !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  border-radius: 1.25rem 1.25rem 0 0 !important;
+  padding: 1rem 1.5rem !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ── Header filter button ── */
+.card-header .btn-primary {
+  background: #f8fafc !important;
+  color: #374151 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  box-shadow: none !important;
+}
+.card-header .btn-primary:hover {
+  background: #f1f5f9 !important;
+}
+
+/* ── Add button ── */
+.card-body > .row .btn-primary {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  box-shadow: none !important;
+}
+.card-body > .row .btn-primary:hover {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* ── Company item card ── */
+.card-hover-shadow {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 2px 8px -2px rgba(0,0,0,0.06) !important;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.15s ease !important;
+  cursor: pointer;
+}
+.card-hover-shadow:hover {
+  box-shadow: 0 8px 24px -6px rgba(37,99,235,0.14) !important;
+  border-color: #bfdbfe !important;
+  transform: translateY(-1px);
+}
+.card-hover-shadow .card-body {
+  padding: 0.875rem 1.25rem !important;
+}
+
+/* ── Logo ── */
+.card-hover-shadow .img-fluid {
+  border-radius: 0.5rem !important;
+  border: 1px solid #f1f5f9 !important;
+  object-fit: contain;
+}
+
+/* ── Checkmark icon ── */
+.card-hover-shadow .tio-checkmark-circle-outlined {
+  color: #22c55e !important;
+  font-size: 1.4rem !important;
+}
+
+/* ── Company name ── */
+.card-hover-shadow .h5 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* ── Offcanvas ── */
+.offcanvas-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 1.25rem 1.5rem;
+}
+.offcanvas-header h5 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #111827;
+}
+.offcanvas-body { padding: 1.25rem 1.5rem; }
+
+/* ── Filter form labels ── */
+.offcanvas-body label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Filter inputs ── */
+.offcanvas-body .form-control {
+  border-radius: 0.625rem !important;
+  border: 1px solid #e5e7eb !important;
+  font-size: 0.8125rem;
+}
+.offcanvas-body .form-control:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+}
+
+/* ── Offcanvas footer buttons ── */
+.offcanvas-body.position-absolute .btn-primary {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.offcanvas-body.position-absolute .btn-primary:hover {
+  background: #1d4ed8 !important;
+}
+.offcanvas-body.position-absolute .btn-light {
+  background: #f8fafc !important;
+  border: 1px solid #e5e7eb !important;
+  color: #374151 !important;
+  border-radius: 0.625rem !important;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.offcanvas-body.position-absolute .btn-light:hover {
+  background: #f1f5f9 !important;
+}
+
 </style>
