@@ -99,6 +99,15 @@
               </router-link>
             </li>
 
+            <!-- User Deals -->
+            <li class="nav-item" v-if="permission=='administrator'">
+              <router-link class="nav-link" to="/UserDeals"
+                 :class="{ 'nav-link-active': isRoute('/UserDeals') }">
+                <i class="fas fa-clipboard-list nav-icon"></i>
+                <span>მომხმარებლის მოთხოვნები</span>
+              </router-link>
+            </li>
+
             <!-- Add Vacancy -->
             <li class="nav-item" v-if="permission=='administrator' || permission=='custumer'">
               <router-link class="nav-link" to="/Addvacancy"

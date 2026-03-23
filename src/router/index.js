@@ -8,6 +8,7 @@ import FrontSignup from '../views/auth/Signup.vue'
 import FrontRecovery from '../views/auth/Recovery.vue'
 import AddVacancy from '../views/auth/AddVacancy.vue'
 import MyVacancy from '../views/auth/MyVacancy.vue'
+import UserDeals from '../views/auth/UserDeals.vue'
 import VacancyDashboard from '../views/auth/VacancyDashboard.vue'
 import Details from '../views/pages/details/index.vue'
 import CreateDetail from '../views/pages/details/Create.vue'
@@ -114,7 +115,7 @@ const routes = [
   {
     path: '/',
     name: 'Dashboard',
-    component: Dashboard
+    component: VacancyDashboard
   },
   {
     path: '/FrontSignin',
@@ -140,6 +141,11 @@ const routes = [
     path: '/MyVacancy/:param',
     name: 'MyVacancy',
     component: MyVacancy
+  },
+  {
+    path: '/UserDeals',
+    name: 'UserDeals',
+    component: UserDeals
   },
   {
     path: '/VacancyDashboard',
